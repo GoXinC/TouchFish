@@ -1,12 +1,8 @@
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedInput } from "@/components/ThemedInput";
 import {
-  Button,
-  Platform,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
   Image,
@@ -27,7 +23,8 @@ export default function LoginIndex() {
   const toLogin = async () => {
     // const response = await login(username, password)
     // console.log(response);
-    Linking.openURL("/chat");
+    const url = Linking.createURL("chat");
+    Linking.openURL(url);
     // const token = response.
   };
   const styles = StyleSheet.create({
