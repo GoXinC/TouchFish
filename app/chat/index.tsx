@@ -4,17 +4,37 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function HomeScreen() {
+  const textColor01 = useThemeColor({}, 'textColor01');
+  const textColor02 = useThemeColor({}, 'textColor02');
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
+      // headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      // headerImage={
+      //   <Image
+      //     source={require('@/assets/images/partial-react-logo.png')}
+      //     style={styles.reactLogo}
+      //   />
+      // }
+      >
+      <ThemedView style={styles.chatBox}>
+        <ThemedView>
+        <Image source={require('@/assets/images/partial-react-logo.png')}
+        style={styles.chatAvatar}
+        resizeMode={"contain"} />
+        </ThemedView>
+        <ThemedView style={styles.chatInfo}>
+          <ThemedView style={styles.chatName}>
+            <ThemedText style={{fontSize:24, fontWeight:'600', color: textColor01}}>name</ThemedText>
+            <ThemedText style={{fontSize:13, color: textColor02}}>22:00</ThemedText>
+          </ThemedView>
+          <ThemedView style={styles.chatLastMessage}>
+            <ThemedText style={{fontSize:18, color: textColor02}}>message,message</ThemedText>
+          </ThemedView>
+        </ThemedView>
+      </ThemedView>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Hello World!</ThemedText>
         <HelloWave />
@@ -51,6 +71,33 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  chatBox: {
+    width: '100%',
+    height: 55,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  chatAvatar: {
+    maxHeight: 52,
+    maxWidth: 52,
+    borderRadius: 10,
+  },
+  chatInfo: {
+    height: 55,
+    flex: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  chatName: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  chatLastMessage:{
+
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',

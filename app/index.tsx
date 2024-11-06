@@ -16,11 +16,10 @@ export default function LoginIndex() {
 
     const background01 = useThemeColor({}, 'baseBackground');
     const primaryColor = useThemeColor({}, 'color01');
-    const textColor = useThemeColor({}, 'textColor01');
 
     const toLogin = async () => {
-        const response = await login(username, password)
-        console.log(response);
+        // const response = await login(username, password)
+        // console.log(response);
         Linking.openURL('/chat')
         // const token = response.
     }
